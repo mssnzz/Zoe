@@ -94,7 +94,7 @@ app.post("/", express.json(), function (request, response) {
   agent.handleRequest(intentMap);
 });
 
-let port = 3500;
+let port = 3000;
 
 app.listen(port, () => {
   console.log('we are online');
