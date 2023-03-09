@@ -3,6 +3,9 @@ import { WebhookClient } from "dialogflow-fulfillment";
 import { ChatGPT } from "chatgpt-official";
 import { validarCedula } from "./controllers/cedula.validator.js";
 import { v4 as uuidv4 } from 'uuid';
+import { config } from "dotenv";
+config();
+
 import morgan from "morgan";
 
 const app = express();
@@ -94,7 +97,7 @@ app.post("/", express.json(), function (request, response) {
   agent.handleRequest(intentMap);
 });
 
-let port = 3000;
+let port = process.env.PORT || 3000;
 
 app.listen(port, () => {
   console.log('we are online');
